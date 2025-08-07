@@ -61,7 +61,26 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				/* Anvaya Tours Brand Colors */
+				travel: {
+					hero: 'hsl(var(--travel-hero))',
+					cream: 'hsl(var(--travel-cream))',
+					'dark-olive': 'hsl(var(--travel-dark-olive))',
+					'light-olive': 'hsl(var(--travel-light-olive))'
 				}
+			},
+			backgroundImage: {
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-section': 'var(--gradient-section)'
+			},
+			boxShadow: {
+				'travel': 'var(--shadow-travel)',
+				'card-travel': 'var(--shadow-card)'
+			},
+			fontFamily: {
+				serif: ['Playfair Display', 'serif'],
+				sans: ['Inter', 'sans-serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
