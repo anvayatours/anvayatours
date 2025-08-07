@@ -7,10 +7,10 @@ const travelButtonVariants = cva(
   {
     variants: {
       variant: {
-        hero: "bg-gradient-hero text-white shadow-travel hover:shadow-xl hover:scale-105",
+        hero: "bg-gradient-hero text-travel-dark-olive shadow-travel hover:shadow-xl hover:scale-105 font-semibold",
         outline: "border border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        cream: "bg-travel-cream text-travel-dark-olive hover:bg-secondary border border-primary/20",
+        cream: "bg-travel-cream text-travel-dark-olive hover:bg-primary hover:text-primary-foreground border border-primary/20 font-semibold",
       },
       size: {
         default: "h-10 px-4 py-2",

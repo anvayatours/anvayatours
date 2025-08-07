@@ -8,50 +8,50 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Anvaya Tours Brand Colors */
-    --background: 41 39% 84%; /* Cream background */
-    --foreground: 85 15% 25%; /* Dark olive text */
+    /* Anvaya Tours Dark Theme Colors */
+    --background: 85 15% 15%; /* Dark olive background */
+    --foreground: 41 39% 84%; /* Cream text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 85 15% 25%;
+    --card: 85 15% 18%;
+    --card-foreground: 41 39% 84%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 85 15% 25%;
+    --popover: 85 15% 18%;
+    --popover-foreground: 41 39% 84%;
 
-    /* Primary: Olive Green */
-    --primary: 85 9% 64%;
-    --primary-foreground: 41 39% 94%;
+    /* Primary: Cream accent */
+    --primary: 41 39% 84%;
+    --primary-foreground: 85 15% 15%;
 
-    /* Secondary: Warm cream */
-    --secondary: 41 25% 90%;
-    --secondary-foreground: 85 15% 25%;
+    /* Secondary: Darker olive */
+    --secondary: 85 15% 20%;
+    --secondary-foreground: 41 39% 84%;
 
-    --muted: 41 20% 88%;
-    --muted-foreground: 85 10% 45%;
+    --muted: 85 10% 25%;
+    --muted-foreground: 41 20% 65%;
 
-    --accent: 85 12% 75%;
-    --accent-foreground: 85 15% 25%;
+    --accent: 41 30% 75%;
+    --accent-foreground: 85 15% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 41 39% 94%;
 
-    --border: 85 8% 80%;
-    --input: 41 15% 92%;
-    --ring: 85 9% 64%;
+    --border: 85 8% 30%;
+    --input: 85 15% 20%;
+    --ring: 41 39% 84%;
 
     /* Custom travel theme colors */
-    --travel-hero: 85 9% 64%;
+    --travel-hero: 41 39% 84%;
     --travel-cream: 41 39% 84%;
-    --travel-dark-olive: 85 15% 25%;
-    --travel-light-olive: 85 12% 75%;
+    --travel-dark-olive: 85 15% 15%;
+    --travel-light-olive: 85 10% 35%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(85 9% 64%), hsl(85 12% 75%));
-    --gradient-section: linear-gradient(180deg, hsl(41 39% 94%), hsl(41 25% 90%));
+    --gradient-hero: linear-gradient(135deg, hsl(41 39% 84%), hsl(41 30% 75%));
+    --gradient-section: linear-gradient(180deg, hsl(85 15% 18%), hsl(85 15% 20%));
     
     /* Shadows */
-    --shadow-travel: 0 10px 40px -10px hsl(85 9% 64% / 0.2);
-    --shadow-card: 0 4px 20px -4px hsl(85 9% 64% / 0.15);
+    --shadow-travel: 0 10px 40px -10px hsl(0 0% 0% / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.2);
 
     --radius: 0.5rem;
 
@@ -73,41 +73,42 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Keep the same dark theme for explicit dark mode */
+    --background: 85 15% 12%;
+    --foreground: 41 39% 88%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 85 15% 15%;
+    --card-foreground: 41 39% 88%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 85 15% 15%;
+    --popover-foreground: 41 39% 88%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 41 39% 88%;
+    --primary-foreground: 85 15% 12%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 85 15% 18%;
+    --secondary-foreground: 41 39% 88%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 85 10% 22%;
+    --muted-foreground: 41 20% 70%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 41 30% 80%;
+    --accent-foreground: 85 15% 12%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 41 39% 94%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 85 8% 25%;
+    --input: 85 15% 18%;
+    --ring: 41 39% 88%;
+    --sidebar-background: 85 15% 12%;
+    --sidebar-foreground: 41 39% 88%;
+    --sidebar-primary: 41 39% 88%;
+    --sidebar-primary-foreground: 85 15% 12%;
+    --sidebar-accent: 85 15% 18%;
+    --sidebar-accent-foreground: 41 39% 88%;
+    --sidebar-border: 85 8% 25%;
+    --sidebar-ring: 41 39% 88%;
   }
 }
 
