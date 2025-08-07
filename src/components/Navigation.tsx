@@ -19,7 +19,7 @@ const Navigation = () => {
             <img 
               src="/lovable-uploads/778912f2-061e-4970-b5df-bced34d8aba6.png" 
               alt="Anvaya Tours" 
-              className="h-10 w-10"
+              className="h-10 w-10 brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
             />
           </Link>
           
