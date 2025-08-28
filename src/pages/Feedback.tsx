@@ -1,39 +1,88 @@
+"use client";
+
+import { useState } from "react";
+import { db } from "@/lib/firebase"; // Firestore setup
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import Navigation from "@/components/Navigation";
 import TravelButton from "@/components/TravelButton";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
 
 const Feedback = () => {
   const [rating, setRating] = useState(0);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    destination: "",
+    feedback: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.name || !form.email || !form.destination || !form.feedback || rating === 0) {
+      alert("Please fill in all fields and select a rating.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      await addDoc(collection(db, "feedbacks"), {
+        ...form,
+        rating,
+        createdAt: serverTimestamp(),
+      });
+      setSubmitted(true);
+      setForm({ name: "", email: "", destination: "", feedback: "" });
+      setRating(0);
+    } catch (error) {
+      console.error("Error adding feedback: ", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const testimonials = [
     {
-      name: "Sarah & Michael Chen",
-      location: "Bali, Indonesia",
-      text: "Anvaya Tours created the perfect honeymoon for us. Every detail was thoughtfully planned, from the private villa overlooking rice terraces to the couples cooking class. It truly felt like our dream come true.",
+      name: "Rohan and Anjali Singh",
+      location: "Maldives Honeymoon",
+      text: "Our honeymoon was a dream come true! Anvaya Tours managed everything flawlessly, from the overwater villa to the private dinners. We truly felt like royalty and could just relax and enjoy the moment. Thank you for the unforgettable memories!",
       rating: 5,
-      trip: "Romantic Getaway"
+      trip: "Luxury Escape",
     },
     {
-      name: "Jennifer Martinez",
-      location: "Morocco Cultural Tour",
-      text: "As a solo female traveler, I was nervous about exploring Morocco alone. Anvaya Tours provided me with amazing local guides and perfectly safe accommodations. The experience exceeded all my expectations!",
+      name: "Priya Sharma",
+      location: "Ladakh Adventure",
+      text: "The Ladakh trip was an exhilarating experience for my family. The local guides were fantastic, and the itinerary was perfect. The stunning landscapes and warm hospitality were beyond our expectations. It was a perfectly organized adventure!",
       rating: 5,
-      trip: "Solo Discovery"
+      trip: "Family Adventure",
     },
     {
-      name: "The Johnson Family",
-      location: "Costa Rica Adventure",
-      text: "Our kids still talk about our Costa Rica trip every day! The zip-lining, wildlife encounters, and beach time were perfectly balanced. Anvaya Tours understood exactly what our family needed.",
+      name: "Vikram Menon",
+      location: "Rishikesh Spiritual Journey",
+      text: "I was looking for a peaceful solo trip, and Anvaya Tours delivered. My stay in Rishikesh was serene and well-planned, allowing me to fully immerse myself in the spiritual and natural beauty. It was the perfect escape I needed.",
       rating: 5,
-      trip: "Family Adventure"
-    }
+      trip: "Solo Discovery",
+    },
+    {
+      name: "Sneha and Rahul Rao",
+      location: "Kerala Backwaters",
+      text: "We had the most incredible time exploring the backwaters of Kerala. The houseboat was beautiful and the food was amazing. Anvaya Tours paid attention to every small detail, making our trip completely stress-free. Highly recommend!",
+      rating: 5,
+      trip: "Romantic Getaway",
+    },
   ];
 
-  const renderStars = (count: number, interactive = false) => {
+  const renderStars = (count, interactive = false) => {
     return Array.from({ length: 5 }, (_, i) => (
       <svg
         key={i}
@@ -105,48 +154,56 @@ const Feedback = () => {
           
           <Card className="shadow-travel border-0">
             <CardContent className="p-8">
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+              {submitted ? (
+                <p className="text-green-600 text-center font-semibold">
+                  ✅ Thank you for your feedback!
+                </p>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name" className="text-foreground">Your Name</Label>
+                      <Input id="name" value={form.name} onChange={handleChange} placeholder="Enter your full name" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email" className="text-foreground">Email Address</Label>
+                      <Input id="email" type="email" value={form.email} onChange={handleChange} placeholder="your@email.com" />
+                    </div>
+                  </div>
+                  
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-foreground">Your Name</Label>
-                    <Input id="name" placeholder="Enter your full name" />
+                    <Label htmlFor="destination" className="text-foreground">Trip Destination</Label>
+                    <Input id="destination" value={form.destination} onChange={handleChange} placeholder="Where did you travel with us?" />
                   </div>
+                  
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-foreground">Email Address</Label>
-                    <Input id="email" type="email" placeholder="your@email.com" />
+                    <Label className="text-foreground">Rate Your Experience</Label>
+                    <div className="flex items-center space-x-1">
+                      {renderStars(rating, true)}
+                      <span className="ml-2 text-sm text-muted-foreground">
+                        {rating > 0 ? `${rating}/5 stars` : 'Click to rate'}
+                      </span>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="destination" className="text-foreground">Trip Destination</Label>
-                  <Input id="destination" placeholder="Where did you travel with us?" />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label className="text-foreground">Rate Your Experience</Label>
-                  <div className="flex items-center space-x-1">
-                    {renderStars(rating, true)}
-                    <span className="ml-2 text-sm text-muted-foreground">
-                      {rating > 0 ? `${rating}/5 stars` : 'Click to rate'}
-                    </span>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="feedback" className="text-foreground">Your Feedback</Label>
+                    <Textarea 
+                      id="feedback" 
+                      value={form.feedback} 
+                      onChange={handleChange}
+                      placeholder="Tell us about your experience with Anvaya Tours..."
+                      rows={6}
+                    />
                   </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="feedback" className="text-foreground">Your Feedback</Label>
-                  <Textarea 
-                    id="feedback" 
-                    placeholder="Tell us about your experience with Anvaya Tours..."
-                    rows={6}
-                  />
-                </div>
-                
-                <div className="flex justify-center">
-                  <TravelButton variant="hero" size="lg" type="submit">
-                    Submit Feedback
-                  </TravelButton>
-                </div>
-              </form>
+                  
+                  <div className="flex justify-center">
+                    <TravelButton variant="hero" size="lg" type="submit" disabled={loading}>
+                      {loading ? "Submitting..." : "Submit Feedback"}
+                    </TravelButton>
+                  </div>
+                </form>
+              )}
             </CardContent>
           </Card>
         </div>

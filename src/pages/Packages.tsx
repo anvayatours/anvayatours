@@ -7,57 +7,73 @@ const Packages = () => {
   const packages = [
     {
       id: 1,
-      title: "Romantic Getaway",
-      description: "Intimate escapes designed for couples seeking romance and connection",
-      duration: "3-7 days",
-      price: "From $1,299",
-      features: ["Private dining", "Couples spa", "Sunset tours", "Luxury accommodations"],
-      category: "Romance"
+      title: "Singapore – 5 Nights / 6 Days",
+      description:
+        "Explore Singapore with all important attractions, private tours, and premium accommodation. Perfect for those seeking a complete and comfortable travel experience.",
+      duration: "5 nights / 6 days",
+      price: "INR 91,000 per adult",
+      features: [
+        "All important attractions",
+        "All tours on private basis",
+        "Accommodation at 4-star hotel"
+      ],
+      category: "International"
     },
     {
       id: 2,
-      title: "Family Adventure",
-      description: "Fun-filled journeys that create lasting memories for the whole family",
-      duration: "5-10 days",
-      price: "From $2,199",
-      features: ["Kid-friendly activities", "Family suites", "Educational tours", "Adventure parks"],
-      category: "Family"
+      title: "Vietnam – 6 Nights / 7 Days",
+      description:
+        "Discover the charm of Vietnam with its rich culture, scenic landscapes, and private tours for a truly exclusive experience.",
+      duration: "6 nights / 7 days",
+      price: "INR 80,000 per adult",
+      features: [
+        "All important attractions",
+        "All tours on private basis",
+        "Accommodation at 4-star hotel"
+      ],
+      category: "International"
     },
     {
       id: 3,
-      title: "Solo Discovery",
-      description: "Personal journeys of self-discovery and cultural immersion",
-      duration: "7-14 days",
-      price: "From $1,899",
-      features: ["Cultural experiences", "Local guides", "Photography tours", "Personal growth activities"],
-      category: "Solo"
+      title: "Bali – 7 Nights / 8 Days",
+      description:
+        "Experience Bali’s tropical paradise with beaches, temples, and private guided tours while enjoying luxury comfort.",
+      duration: "7 nights / 8 days",
+      price: "INR 54,000 per adult",
+      features: [
+        "All important attractions",
+        "All tours on private basis",
+        "Accommodation at 4-star hotel"
+      ],
+      category: "International"
     },
     {
       id: 4,
-      title: "Luxury Escapes",
-      description: "Premium experiences with the finest accommodations and services",
-      duration: "4-8 days",
-      price: "From $3,499",
-      features: ["5-star hotels", "Private transfers", "Michelin dining", "Exclusive access"],
-      category: "Luxury"
+      title: "Andaman – 3 Nights / 4 Days",
+      description:
+        "Enjoy the serene beaches and natural beauty of the Andaman Islands with personalized tours and premium stays.",
+      duration: "3 nights / 4 days",
+      price: "INR 35,000 per adult",
+      features: [
+        "All important attractions",
+        "All tours on private basis",
+        "Accommodation at 4-star hotel"
+      ],
+      category: "Domestic"
     },
     {
       id: 5,
-      title: "Adventure Tours",
-      description: "Thrilling experiences for adrenaline seekers and outdoor enthusiasts",
-      duration: "6-12 days",
-      price: "From $1,699",
-      features: ["Hiking & trekking", "Water sports", "Wildlife safaris", "Camping experiences"],
-      category: "Adventure"
-    },
-    {
-      id: 6,
-      title: "Cultural Immersion",
-      description: "Deep dives into local cultures, traditions, and authentic experiences",
-      duration: "8-15 days",
-      price: "From $2,299",
-      features: ["Local homestays", "Cooking classes", "Art workshops", "Historical tours"],
-      category: "Culture"
+      title: "Phuket, Pattaya & Bangkok – 7 Nights / 8 Days",
+      description:
+        "Explore the best of Thailand from the beaches of Phuket to the vibrant cities of Pattaya and Bangkok, with private tours and luxury stays.",
+      duration: "7 nights / 8 days",
+      price: "INR 52,800 per adult",
+      features: [
+        "All important attractions",
+        "All tours on private basis",
+        "Accommodation at 4-star hotel"
+      ],
+      category: "International"
     }
   ];
 
@@ -72,8 +88,7 @@ const Packages = () => {
             Travel <span className="text-primary">Packages</span>
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Discover our carefully curated travel packages designed to match every adventure style. 
-            Each package is fully customizable to your preferences and desires.
+            Discover our handpicked travel packages designed for comfort, privacy, and unforgettable experiences.
           </p>
         </div>
       </section>
@@ -114,9 +129,6 @@ const Packages = () => {
                     <div className="pt-4 border-t border-border">
                       <div className="flex items-center justify-between">
                         <span className="font-serif text-xl font-semibold text-primary">{pkg.price}</span>
-                        <TravelButton variant="outline" size="sm">
-                          Customize
-                        </TravelButton>
                       </div>
                     </div>
                   </div>
@@ -128,19 +140,7 @@ const Packages = () => {
       </section>
 
       {/* Custom Package CTA */}
-      <section className="py-20 px-4 bg-gradient-section">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Don't See What You're Looking For?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Every journey is unique. Let us create a completely custom package tailored to your specific dreams and preferences.
-          </p>
-          <TravelButton variant="hero" size="xl">
-            Create Custom Package
-          </TravelButton>
-        </div>
-      </section>
+      
     </div>
   );
 };

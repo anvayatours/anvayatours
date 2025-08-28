@@ -15,12 +15,17 @@ const Navigation = () => {
     <nav className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="text-2xl font-bold text-primary">
+              Anvaya Tours
+            </div>
+            <Link to="/" className="flex items-center">
             <img 
               src="/lovable-uploads/778912f2-061e-4970-b5df-bced34d8aba6.png" 
               alt="Anvaya Tours" 
-              className="h-10 w-10 brightness-0 invert opacity-80 hover:opacity-100 transition-opacity"
+              className="h-12 w-12"
             />
+          </Link>
           </Link>
           
           <div className="hidden md:flex space-x-8">
