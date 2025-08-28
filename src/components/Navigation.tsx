@@ -16,16 +16,16 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/" className="flex items-center space-x-3">
-            <div className="text-2xl font-bold text-primary">
+            <div className="font-serif text-3xl font-semibold text-primary tracking-tight">
               Anvaya Tours
             </div>
             <Link to="/" className="flex items-center">
-            <img 
-              src="/lovable-uploads/778912f2-061e-4970-b5df-bced34d8aba6.png" 
-              alt="Anvaya Tours" 
-              className="h-12 w-12"
-            />
-          </Link>
+              <img 
+                src="/lovable-uploads/778912f2-061e-4970-b5df-bced34d8aba6.png" 
+                alt="Anvaya Tours" 
+                className="h-12 w-12"
+              />
+            </Link>
           </Link>
           
           <div className="hidden md:flex space-x-8">
